@@ -1,0 +1,5 @@
+import * as yup from 'yup';
+
+export const {{name}}Schema = () => yup.object({});
+
+export type {{pascalCase name}}SchemaType = yup.InferType<ReturnType<typeof {{name}}Schema>>

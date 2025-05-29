@@ -1,0 +1,35 @@
+/* eslint-disable react-refresh/only-export-components */
+import { {{pascalCase name}}Component } from "./{{pascalCase name}}Component";
+import { lazy } from "react";
+import { RouteObject } from "react-router-dom";
+
+const {{pascalCase name}}Index = lazy(() => import("./pages/{{pascalCase name}}Index"));
+const {{pascalCase name}}Create = lazy(() => import("./pages/{{pascalCase name}}Create"));
+const {{pascalCase name}}Update = lazy(() => import("./pages/{{pascalCase name}}Update"));
+const {{pascalCase name}}Details = lazy(() => import("./pages/{{pascalCase name}}Details"));
+
+export const {{name}}Routes : RouteObject[] =[
+  {
+    path: "{{routerName}}",
+    element: <{{pascalCase name}}Component />,
+    id: "{{routerName}}",
+    children: [
+      {
+        index: true,
+        element: <{{pascalCase name}}Index />,
+      },
+      {
+        path: "create",
+        element: <{{pascalCase name}}Create />,
+      },
+      {
+        path: "update/:id",
+        element: <{{pascalCase name}}Update />,
+      },
+      {
+        path: ":id",
+        element: <{{pascalCase name}}Details />,
+      },
+    ],
+  },
+];

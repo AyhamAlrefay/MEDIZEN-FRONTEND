@@ -1,0 +1,37 @@
+import React from "react";
+import { Box, Button, Stack,Typography } from "@mui/material";
+import { {{pascalCase name}}Table } from '../components/{{pascalCase name}}Table'
+import { DataTableTemplate } from "@/shared/templates/DataTableTemplate.tsx";
+import { useNavigate } from "react-router-dom";
+
+
+const {{pascalCase name}}Index = () => {
+  const navigate = useNavigate();
+  return (<Box>
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        mb={3}
+      >
+        <Typography variant="h6" color="primary" px="2px">
+          Manage {{pascalCase name}}
+        </Typography>
+        <Button
+          type="button"
+          variant="contained"
+          sx=\{{
+            paddingX: 3,
+            paddingY: 1,
+          }}
+          onClick={() => navigate("create")}
+        >
+          Add {{pascalCase name}}
+        </Button>
+      </Stack>
+      <DataTableTemplate title="{{name}} List">
+        <{{pascalCase name}}Table/>
+      </DataTableTemplate>
+    </Box>)
+};
+export default {{pascalCase name}}Index;

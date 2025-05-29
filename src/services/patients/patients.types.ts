@@ -1,0 +1,55 @@
+import { Code } from "../codes/codes.types";
+import { Telecom } from "../telecoms/telecom.types";
+type Addresses = {
+  country: string;
+  city: string;
+  state: string;
+  district: string;
+  line: string;
+  text: string;
+  postal_code: string;
+  start_date: string;
+  end_date: string | null;
+  use_id: Code;
+  type_id: Code;
+};
+export type Patient = {
+  id: number;
+  f_name: string;
+  l_name: string;
+  text: string;
+  family: string;
+  given: string;
+  prefix: string;
+  suffix: string;
+  avatar: string | null;
+  date_of_birth: string;
+  height: number;
+  weight: number;
+  smoker: number;
+  alcohol_drinker: number;
+  deceased_date: string | null;
+  email: string;
+  active: number;
+  gender: Code;
+  marital_status: Code;
+  blood: Code;
+  addresses: Addresses[];
+  telecoms: Telecom[];
+};
+
+export type PatientPayload = {
+  id?: number | undefined;
+  text?: string | undefined;
+  family?: string | undefined;
+  givin?: string | undefined;
+  prefix?: string | undefined;
+  date_of_birth?: string | undefined;
+  height?: number | undefined;
+  weight?: number | undefined;
+  smoker?: number | undefined;
+  alcohol_drinker?: number | undefined;
+  gender_id?: number | undefined;
+  marital_status_id?: number | undefined;
+  blood_id?: number | undefined;
+};

@@ -1,0 +1,354 @@
+// Subjects Enum
+export enum Subjects {
+  ROLE_PERMISSIONS_MANAGEMENT = "role_permissions_management",
+  PROFILE_MANAGEMENT = "profile_management",
+  PRACTITIONER_MANAGEMENT = "practitioner_management",
+  TELECOM_MANAGEMENT = "telecom_management",
+  QUALIFICATION_MANAGEMENT = "qualification_management",
+  LANGUAGE_MANAGEMENT = "language_management",
+  PATIENT_MANAGEMENT = "patient_management",
+  ORGANIZATION_MANAGEMENT = "organization_management",
+  CLINIC_MANAGEMENT = "clinic_management",
+  HEALTHCARE_SERVICE_MANAGEMENT = "healthcare_service_management",
+  SCHEDULE_MANAGEMENT = "schedule_management",
+  VACATION_MANAGEMENT = "vacation_management",
+  APPOINTMENT_MANAGEMENT = "appointment_management",
+  OBSERVATION_MANAGEMENT = "observation_management",
+}
+
+// Actions Enum
+export enum Actions {
+  // Role and Permissions Management
+  VIEW_ROLES = "view roles",
+  CREATE_ROLE = "create role",
+  EDIT_ROLE = "edit role",
+  DELETE_ROLE = "delete role",
+  VIEW_PERMISSION_GROUPS = "view permission groups",
+  VIEW_PERMISSIONS = "view permissions",
+  CREATE_PERMISSION = "create permission",
+  EDIT_PERMISSION = "edit permission",
+  DELETE_PERMISSION = "delete permission",
+  ASSIGN_PERMISSIONS = "assign permissions",
+  VIEW_ROLE_PERMISSIONS = "view role permissions",
+
+  // Profile Management
+  VIEW_OWN_PROFILE = "view own profile",
+  UPDATE_OWN_PROFILE = "update own profile",
+
+  // Practitioner Management
+  VIEW_PRACTITIONERS = "view practitioners",
+  TOGGLE_PRACTITIONER_STATUS = "toggle practitioner status",
+  TOGGLE_PRACTITIONER_DECEASED_STATUS = "toggle practitioner deceased status",
+  UPDATE_PRACTITIONER_ROLE = "update practitioner role",
+
+  // Telecom Management
+  VIEW_OWN_TELECOMS = "view own telecoms",
+  CREATE_OWN_TELECOM = "create own telecom",
+  EDIT_OWN_TELECOM = "edit own telecom",
+  DELETE_OWN_TELECOM = "delete own telecom",
+
+  // Qualification Management
+  VIEW_OWN_QUALIFICATIONS = "view own qualifications",
+  CREATE_OWN_QUALIFICATION = "create own qualification",
+  EDIT_OWN_QUALIFICATION = "edit own qualification",
+  DELETE_OWN_QUALIFICATION = "delete own qualification",
+  VIEW_ORGANIZATION_QUALIFICATIONS = "view organization qualifications",
+  CREATE_ORGANIZATION_QUALIFICATION = "create organization qualification",
+  EDIT_ORGANIZATION_QUALIFICATION = "edit organization qualification",
+  DELETE_ORGANIZATION_QUALIFICATION = "delete organization qualification",
+
+  // Language Management
+  VIEW_OWN_COMMUNICATIONS = "view own communications",
+  CREATE_OWN_COMMUNICATIONS = "create own communications",
+  EDIT_OWN_COMMUNICATIONS = "edit own communications",
+  DELETE_OWN_COMMUNICATIONS = "delete own communications",
+
+  // Patient Management
+  VIEW_PATIENTS = "view patients",
+  UPDATE_PATIENT = "update patient",
+  TOGGLE_PATIENT_STATUS = "toggle patient status",
+  TOGGLE_PATIENT_DECEASED_STATUS = "toggle patient deceased status",
+
+  // Organization Management
+  VIEW_ORGANIZATION = "view organization",
+  EDIT_ORGANIZATION = "edit organization",
+
+  // Clinic Management
+  VIEW_CLINICS = "view clinics",
+  CREATE_CLINIC = "create clinic",
+  EDIT_CLINIC = "edit clinic",
+  TOGGLE_CLINIC_STATUS = "toggle clinic status",
+  VIEW_MY_CLINIC = "view my clinic",
+
+  // Healthcare Service Management
+  VIEW_HEALTH_CARE_SERVICES = "view health care services",
+  CREATE_HEALTH_CARE_SERVICE = "create health care service",
+  EDIT_HEALTH_CARE_SERVICE = "edit health care service",
+  TOGGLE_HEALTH_CARE_SERVICE_STATUS = "toggle health care service status",
+  VIEW_HEALTH_CARE_SERVICE_ELIGIBILITIES = "view health care service eligibilities",
+  CREATE_HEALTH_CARE_SERVICE_ELIGIBILITY = "create health care service eligibility",
+  EDIT_HEALTH_CARE_SERVICE_ELIGIBILITY = "edit health care service eligibility",
+  DELETE_HEALTH_CARE_SERVICE_ELIGIBILITY = "delete health care service eligibility",
+
+  // Schedule Management
+  VIEW_SCHEDULES = "view schedules",
+  CREATE_SCHEDULE = "create schedule",
+  UPDATE_SCHEDULE = "update schedule",
+  TOGGLE_SCHEDULE_STATUS = "toggle schedule status",
+
+  // Vacation Management
+  VIEW_VACATIONS = "view vacations",
+  CREATE_VACATION = "create vacation",
+  UPDATE_VACATION = "update vacation",
+  DELETE_VACATION = "delete vacation",
+
+  // Appointment Management
+  VIEW_SLOTS = "view slots",
+  GENERATE_SLOTS = "generate slots",
+  VIEW_APPOINTMENTS = "view appointments",
+  VIEW_MY_APPOINTMENTS = "view my appointments",
+  CREATE_APPOINTMENT = "create appointment",
+  UPDATE_APPOINTMENT = "update appointment",
+  CANCEL_APPOINTMENT = "cancel appointment",
+  FINISH_APPOINTMENT = "finish appointment",
+
+  // Observation Management
+  VIEW_OBSERVATION_DEFINITIONS = "view observation definitions",
+  CREATE_OBSERVATION_DEFINITION = "create observation definition",
+  EDIT_OBSERVATION_DEFINITION = "edit observation definition",
+  TOGGLE_OBSERVATION_DEFINITION_STATUS = "toggle observation definition status",
+  VIEW_QUALIFIED_VALUES = "view qualified values",
+  CREATE_QUALIFIED_VALUE = "create qualified value",
+  EDIT_QUALIFIED_VALUE = "edit qualified value",
+  DELETE_QUALIFIED_VALUE = "delete qualified value",
+}
+
+// Define the allowed actions for each subject
+type SubjectActionMap = {
+  [Subjects.ROLE_PERMISSIONS_MANAGEMENT]: {
+    [Actions.VIEW_ROLES]: Actions.VIEW_ROLES;
+    [Actions.CREATE_ROLE]: Actions.CREATE_ROLE;
+    [Actions.EDIT_ROLE]: Actions.EDIT_ROLE;
+    [Actions.DELETE_ROLE]: Actions.DELETE_ROLE;
+    [Actions.VIEW_PERMISSION_GROUPS]: Actions.VIEW_PERMISSION_GROUPS;
+    [Actions.VIEW_PERMISSIONS]: Actions.VIEW_PERMISSIONS;
+    [Actions.CREATE_PERMISSION]: Actions.CREATE_PERMISSION;
+    [Actions.EDIT_PERMISSION]: Actions.EDIT_PERMISSION;
+    [Actions.DELETE_PERMISSION]: Actions.DELETE_PERMISSION;
+    [Actions.ASSIGN_PERMISSIONS]: Actions.ASSIGN_PERMISSIONS;
+    [Actions.VIEW_ROLE_PERMISSIONS]: Actions.VIEW_ROLE_PERMISSIONS;
+  };
+  [Subjects.PROFILE_MANAGEMENT]: {
+    [Actions.VIEW_OWN_PROFILE]: Actions.VIEW_OWN_PROFILE;
+    [Actions.UPDATE_OWN_PROFILE]: Actions.UPDATE_OWN_PROFILE;
+  };
+  [Subjects.PRACTITIONER_MANAGEMENT]: {
+    [Actions.VIEW_PRACTITIONERS]: Actions.VIEW_PRACTITIONERS;
+    [Actions.TOGGLE_PRACTITIONER_STATUS]: Actions.TOGGLE_PRACTITIONER_STATUS;
+    [Actions.TOGGLE_PRACTITIONER_DECEASED_STATUS]: Actions.TOGGLE_PRACTITIONER_DECEASED_STATUS;
+    [Actions.UPDATE_PRACTITIONER_ROLE]: Actions.UPDATE_PRACTITIONER_ROLE;
+  };
+  [Subjects.TELECOM_MANAGEMENT]: {
+    [Actions.VIEW_OWN_TELECOMS]: Actions.VIEW_OWN_TELECOMS;
+    [Actions.CREATE_OWN_TELECOM]: Actions.CREATE_OWN_TELECOM;
+    [Actions.EDIT_OWN_TELECOM]: Actions.EDIT_OWN_TELECOM;
+    [Actions.DELETE_OWN_TELECOM]: Actions.DELETE_OWN_TELECOM;
+  };
+  [Subjects.QUALIFICATION_MANAGEMENT]: {
+    [Actions.VIEW_OWN_QUALIFICATIONS]: Actions.VIEW_OWN_QUALIFICATIONS;
+    [Actions.CREATE_OWN_QUALIFICATION]: Actions.CREATE_OWN_QUALIFICATION;
+    [Actions.EDIT_OWN_QUALIFICATION]: Actions.EDIT_OWN_QUALIFICATION;
+    [Actions.DELETE_OWN_QUALIFICATION]: Actions.DELETE_OWN_QUALIFICATION;
+    [Actions.VIEW_ORGANIZATION_QUALIFICATIONS]: Actions.VIEW_ORGANIZATION_QUALIFICATIONS;
+    [Actions.CREATE_ORGANIZATION_QUALIFICATION]: Actions.CREATE_ORGANIZATION_QUALIFICATION;
+    [Actions.EDIT_ORGANIZATION_QUALIFICATION]: Actions.EDIT_ORGANIZATION_QUALIFICATION;
+    [Actions.DELETE_ORGANIZATION_QUALIFICATION]: Actions.DELETE_ORGANIZATION_QUALIFICATION;
+  };
+  [Subjects.LANGUAGE_MANAGEMENT]: {
+    [Actions.VIEW_OWN_COMMUNICATIONS]: Actions.VIEW_OWN_COMMUNICATIONS;
+    [Actions.CREATE_OWN_COMMUNICATIONS]: Actions.CREATE_OWN_COMMUNICATIONS;
+    [Actions.EDIT_OWN_COMMUNICATIONS]: Actions.EDIT_OWN_COMMUNICATIONS;
+    [Actions.DELETE_OWN_COMMUNICATIONS]: Actions.DELETE_OWN_COMMUNICATIONS;
+  };
+  [Subjects.PATIENT_MANAGEMENT]: {
+    [Actions.VIEW_PATIENTS]: Actions.VIEW_PATIENTS;
+    [Actions.UPDATE_PATIENT]: Actions.UPDATE_PATIENT;
+    [Actions.TOGGLE_PATIENT_STATUS]: Actions.TOGGLE_PATIENT_STATUS;
+    [Actions.TOGGLE_PATIENT_DECEASED_STATUS]: Actions.TOGGLE_PATIENT_DECEASED_STATUS;
+  };
+  [Subjects.ORGANIZATION_MANAGEMENT]: {
+    [Actions.VIEW_ORGANIZATION]: Actions.VIEW_ORGANIZATION;
+    [Actions.EDIT_ORGANIZATION]: Actions.EDIT_ORGANIZATION;
+  };
+  [Subjects.CLINIC_MANAGEMENT]: {
+    [Actions.VIEW_CLINICS]: Actions.VIEW_CLINICS;
+    [Actions.CREATE_CLINIC]: Actions.CREATE_CLINIC;
+    [Actions.EDIT_CLINIC]: Actions.EDIT_CLINIC;
+    [Actions.TOGGLE_CLINIC_STATUS]: Actions.TOGGLE_CLINIC_STATUS;
+    [Actions.VIEW_MY_CLINIC]: Actions.VIEW_MY_CLINIC;
+  };
+  [Subjects.HEALTHCARE_SERVICE_MANAGEMENT]: {
+    [Actions.VIEW_HEALTH_CARE_SERVICES]: Actions.VIEW_HEALTH_CARE_SERVICES;
+    [Actions.CREATE_HEALTH_CARE_SERVICE]: Actions.CREATE_HEALTH_CARE_SERVICE;
+    [Actions.EDIT_HEALTH_CARE_SERVICE]: Actions.EDIT_HEALTH_CARE_SERVICE;
+    [Actions.TOGGLE_HEALTH_CARE_SERVICE_STATUS]: Actions.TOGGLE_HEALTH_CARE_SERVICE_STATUS;
+    [Actions.VIEW_HEALTH_CARE_SERVICE_ELIGIBILITIES]: Actions.VIEW_HEALTH_CARE_SERVICE_ELIGIBILITIES;
+    [Actions.CREATE_HEALTH_CARE_SERVICE_ELIGIBILITY]: Actions.CREATE_HEALTH_CARE_SERVICE_ELIGIBILITY;
+    [Actions.EDIT_HEALTH_CARE_SERVICE_ELIGIBILITY]: Actions.EDIT_HEALTH_CARE_SERVICE_ELIGIBILITY;
+    [Actions.DELETE_HEALTH_CARE_SERVICE_ELIGIBILITY]: Actions.DELETE_HEALTH_CARE_SERVICE_ELIGIBILITY;
+  };
+  [Subjects.SCHEDULE_MANAGEMENT]: {
+    [Actions.VIEW_SCHEDULES]: Actions.VIEW_SCHEDULES;
+    [Actions.CREATE_SCHEDULE]: Actions.CREATE_SCHEDULE;
+    [Actions.UPDATE_SCHEDULE]: Actions.UPDATE_SCHEDULE;
+    [Actions.TOGGLE_SCHEDULE_STATUS]: Actions.TOGGLE_SCHEDULE_STATUS;
+  };
+  [Subjects.VACATION_MANAGEMENT]: {
+    [Actions.VIEW_VACATIONS]: Actions.VIEW_VACATIONS;
+    [Actions.CREATE_VACATION]: Actions.CREATE_VACATION;
+    [Actions.UPDATE_VACATION]: Actions.UPDATE_VACATION;
+    [Actions.DELETE_VACATION]: Actions.DELETE_VACATION;
+  };
+  [Subjects.APPOINTMENT_MANAGEMENT]: {
+    [Actions.VIEW_SLOTS]: Actions.VIEW_SLOTS;
+    [Actions.GENERATE_SLOTS]: Actions.GENERATE_SLOTS;
+    [Actions.VIEW_APPOINTMENTS]: Actions.VIEW_APPOINTMENTS;
+    [Actions.VIEW_MY_APPOINTMENTS]: Actions.VIEW_MY_APPOINTMENTS;
+    [Actions.CREATE_APPOINTMENT]: Actions.CREATE_APPOINTMENT;
+    [Actions.UPDATE_APPOINTMENT]: Actions.UPDATE_APPOINTMENT;
+    [Actions.CANCEL_APPOINTMENT]: Actions.CANCEL_APPOINTMENT;
+    [Actions.FINISH_APPOINTMENT]: Actions.FINISH_APPOINTMENT;
+  };
+  [Subjects.OBSERVATION_MANAGEMENT]: {
+    [Actions.VIEW_OBSERVATION_DEFINITIONS]: Actions.VIEW_OBSERVATION_DEFINITIONS;
+    [Actions.CREATE_OBSERVATION_DEFINITION]: Actions.CREATE_OBSERVATION_DEFINITION;
+    [Actions.EDIT_OBSERVATION_DEFINITION]: Actions.EDIT_OBSERVATION_DEFINITION;
+    [Actions.TOGGLE_OBSERVATION_DEFINITION_STATUS]: Actions.TOGGLE_OBSERVATION_DEFINITION_STATUS;
+    [Actions.VIEW_QUALIFIED_VALUES]: Actions.VIEW_QUALIFIED_VALUES;
+    [Actions.CREATE_QUALIFIED_VALUE]: Actions.CREATE_QUALIFIED_VALUE;
+    [Actions.EDIT_QUALIFIED_VALUE]: Actions.EDIT_QUALIFIED_VALUE;
+    [Actions.DELETE_QUALIFIED_VALUE]: Actions.DELETE_QUALIFIED_VALUE;
+  };
+};
+
+// Subject to Actions Mapping
+export const SubjectToActions: SubjectActionMap = {
+  [Subjects.ROLE_PERMISSIONS_MANAGEMENT]: {
+    [Actions.VIEW_ROLES]: Actions.VIEW_ROLES,
+    [Actions.CREATE_ROLE]: Actions.CREATE_ROLE,
+    [Actions.EDIT_ROLE]: Actions.EDIT_ROLE,
+    [Actions.DELETE_ROLE]: Actions.DELETE_ROLE,
+    [Actions.VIEW_PERMISSION_GROUPS]: Actions.VIEW_PERMISSION_GROUPS,
+    [Actions.VIEW_PERMISSIONS]: Actions.VIEW_PERMISSIONS,
+    [Actions.CREATE_PERMISSION]: Actions.CREATE_PERMISSION,
+    [Actions.EDIT_PERMISSION]: Actions.EDIT_PERMISSION,
+    [Actions.DELETE_PERMISSION]: Actions.DELETE_PERMISSION,
+    [Actions.ASSIGN_PERMISSIONS]: Actions.ASSIGN_PERMISSIONS,
+    [Actions.VIEW_ROLE_PERMISSIONS]: Actions.VIEW_ROLE_PERMISSIONS,
+  },
+  [Subjects.PROFILE_MANAGEMENT]: {
+    [Actions.VIEW_OWN_PROFILE]: Actions.VIEW_OWN_PROFILE,
+    [Actions.UPDATE_OWN_PROFILE]: Actions.UPDATE_OWN_PROFILE,
+  },
+  [Subjects.PRACTITIONER_MANAGEMENT]: {
+    [Actions.VIEW_PRACTITIONERS]: Actions.VIEW_PRACTITIONERS,
+    [Actions.TOGGLE_PRACTITIONER_STATUS]: Actions.TOGGLE_PRACTITIONER_STATUS,
+    [Actions.TOGGLE_PRACTITIONER_DECEASED_STATUS]:
+      Actions.TOGGLE_PRACTITIONER_DECEASED_STATUS,
+    [Actions.UPDATE_PRACTITIONER_ROLE]: Actions.UPDATE_PRACTITIONER_ROLE,
+  },
+  [Subjects.TELECOM_MANAGEMENT]: {
+    [Actions.VIEW_OWN_TELECOMS]: Actions.VIEW_OWN_TELECOMS,
+    [Actions.CREATE_OWN_TELECOM]: Actions.CREATE_OWN_TELECOM,
+    [Actions.EDIT_OWN_TELECOM]: Actions.EDIT_OWN_TELECOM,
+    [Actions.DELETE_OWN_TELECOM]: Actions.DELETE_OWN_TELECOM,
+  },
+  [Subjects.QUALIFICATION_MANAGEMENT]: {
+    [Actions.VIEW_OWN_QUALIFICATIONS]: Actions.VIEW_OWN_QUALIFICATIONS,
+    [Actions.CREATE_OWN_QUALIFICATION]: Actions.CREATE_OWN_QUALIFICATION,
+    [Actions.EDIT_OWN_QUALIFICATION]: Actions.EDIT_OWN_QUALIFICATION,
+    [Actions.DELETE_OWN_QUALIFICATION]: Actions.DELETE_OWN_QUALIFICATION,
+    [Actions.VIEW_ORGANIZATION_QUALIFICATIONS]:
+      Actions.VIEW_ORGANIZATION_QUALIFICATIONS,
+    [Actions.CREATE_ORGANIZATION_QUALIFICATION]:
+      Actions.CREATE_ORGANIZATION_QUALIFICATION,
+    [Actions.EDIT_ORGANIZATION_QUALIFICATION]:
+      Actions.EDIT_ORGANIZATION_QUALIFICATION,
+    [Actions.DELETE_ORGANIZATION_QUALIFICATION]:
+      Actions.DELETE_ORGANIZATION_QUALIFICATION,
+  },
+  [Subjects.LANGUAGE_MANAGEMENT]: {
+    [Actions.VIEW_OWN_COMMUNICATIONS]: Actions.VIEW_OWN_COMMUNICATIONS,
+    [Actions.CREATE_OWN_COMMUNICATIONS]: Actions.CREATE_OWN_COMMUNICATIONS,
+    [Actions.EDIT_OWN_COMMUNICATIONS]: Actions.EDIT_OWN_COMMUNICATIONS,
+    [Actions.DELETE_OWN_COMMUNICATIONS]: Actions.DELETE_OWN_COMMUNICATIONS,
+  },
+  [Subjects.PATIENT_MANAGEMENT]: {
+    [Actions.VIEW_PATIENTS]: Actions.VIEW_PATIENTS,
+    [Actions.UPDATE_PATIENT]: Actions.UPDATE_PATIENT,
+    [Actions.TOGGLE_PATIENT_STATUS]: Actions.TOGGLE_PATIENT_STATUS,
+    [Actions.TOGGLE_PATIENT_DECEASED_STATUS]:
+      Actions.TOGGLE_PATIENT_DECEASED_STATUS,
+  },
+  [Subjects.ORGANIZATION_MANAGEMENT]: {
+    [Actions.VIEW_ORGANIZATION]: Actions.VIEW_ORGANIZATION,
+    [Actions.EDIT_ORGANIZATION]: Actions.EDIT_ORGANIZATION,
+  },
+  [Subjects.CLINIC_MANAGEMENT]: {
+    [Actions.VIEW_CLINICS]: Actions.VIEW_CLINICS,
+    [Actions.CREATE_CLINIC]: Actions.CREATE_CLINIC,
+    [Actions.EDIT_CLINIC]: Actions.EDIT_CLINIC,
+    [Actions.TOGGLE_CLINIC_STATUS]: Actions.TOGGLE_CLINIC_STATUS,
+    [Actions.VIEW_MY_CLINIC]: Actions.VIEW_MY_CLINIC,
+  },
+  [Subjects.HEALTHCARE_SERVICE_MANAGEMENT]: {
+    [Actions.VIEW_HEALTH_CARE_SERVICES]: Actions.VIEW_HEALTH_CARE_SERVICES,
+    [Actions.CREATE_HEALTH_CARE_SERVICE]: Actions.CREATE_HEALTH_CARE_SERVICE,
+    [Actions.EDIT_HEALTH_CARE_SERVICE]: Actions.EDIT_HEALTH_CARE_SERVICE,
+    [Actions.TOGGLE_HEALTH_CARE_SERVICE_STATUS]:
+      Actions.TOGGLE_HEALTH_CARE_SERVICE_STATUS,
+    [Actions.VIEW_HEALTH_CARE_SERVICE_ELIGIBILITIES]:
+      Actions.VIEW_HEALTH_CARE_SERVICE_ELIGIBILITIES,
+    [Actions.CREATE_HEALTH_CARE_SERVICE_ELIGIBILITY]:
+      Actions.CREATE_HEALTH_CARE_SERVICE_ELIGIBILITY,
+    [Actions.EDIT_HEALTH_CARE_SERVICE_ELIGIBILITY]:
+      Actions.EDIT_HEALTH_CARE_SERVICE_ELIGIBILITY,
+    [Actions.DELETE_HEALTH_CARE_SERVICE_ELIGIBILITY]:
+      Actions.DELETE_HEALTH_CARE_SERVICE_ELIGIBILITY,
+  },
+  [Subjects.SCHEDULE_MANAGEMENT]: {
+    [Actions.VIEW_SCHEDULES]: Actions.VIEW_SCHEDULES,
+    [Actions.CREATE_SCHEDULE]: Actions.CREATE_SCHEDULE,
+    [Actions.UPDATE_SCHEDULE]: Actions.UPDATE_SCHEDULE,
+    [Actions.TOGGLE_SCHEDULE_STATUS]: Actions.TOGGLE_SCHEDULE_STATUS,
+  },
+  [Subjects.VACATION_MANAGEMENT]: {
+    [Actions.VIEW_VACATIONS]: Actions.VIEW_VACATIONS,
+    [Actions.CREATE_VACATION]: Actions.CREATE_VACATION,
+    [Actions.UPDATE_VACATION]: Actions.UPDATE_VACATION,
+    [Actions.DELETE_VACATION]: Actions.DELETE_VACATION,
+  },
+  [Subjects.APPOINTMENT_MANAGEMENT]: {
+    [Actions.VIEW_SLOTS]: Actions.VIEW_SLOTS,
+    [Actions.GENERATE_SLOTS]: Actions.GENERATE_SLOTS,
+    [Actions.VIEW_APPOINTMENTS]: Actions.VIEW_APPOINTMENTS,
+    [Actions.VIEW_MY_APPOINTMENTS]: Actions.VIEW_MY_APPOINTMENTS,
+    [Actions.CREATE_APPOINTMENT]: Actions.CREATE_APPOINTMENT,
+    [Actions.UPDATE_APPOINTMENT]: Actions.UPDATE_APPOINTMENT,
+    [Actions.CANCEL_APPOINTMENT]: Actions.CANCEL_APPOINTMENT,
+    [Actions.FINISH_APPOINTMENT]: Actions.FINISH_APPOINTMENT,
+  },
+  [Subjects.OBSERVATION_MANAGEMENT]: {
+    [Actions.VIEW_OBSERVATION_DEFINITIONS]:
+      Actions.VIEW_OBSERVATION_DEFINITIONS,
+    [Actions.CREATE_OBSERVATION_DEFINITION]:
+      Actions.CREATE_OBSERVATION_DEFINITION,
+    [Actions.EDIT_OBSERVATION_DEFINITION]: Actions.EDIT_OBSERVATION_DEFINITION,
+    [Actions.TOGGLE_OBSERVATION_DEFINITION_STATUS]:
+      Actions.TOGGLE_OBSERVATION_DEFINITION_STATUS,
+    [Actions.VIEW_QUALIFIED_VALUES]: Actions.VIEW_QUALIFIED_VALUES,
+    [Actions.CREATE_QUALIFIED_VALUE]: Actions.CREATE_QUALIFIED_VALUE,
+    [Actions.EDIT_QUALIFIED_VALUE]: Actions.EDIT_QUALIFIED_VALUE,
+    [Actions.DELETE_QUALIFIED_VALUE]: Actions.DELETE_QUALIFIED_VALUE,
+  },
+};

@@ -1,0 +1,17 @@
+import { type {{pascalCase name}}SchemaType, {{name}}Schema } from "@/modules/{{name}}/helper/{{name}}Schema"
+import { useForm } from "react-hook-form"
+import { yupResolver } from '@hookform/resolvers/yup'
+import { use{{pascalCase serviceName}}Service } from "@/services/{{serviceName}}/{{serviceName}}.service";
+
+export const useCreate{{pascalCase name}} = () => {
+  const { mutate } = use{{pascalCase serviceName}}Service().create().useMutation();
+
+  const methods = useForm<{{pascalCase name}}SchemaType>({
+    resolver: yupResolver({{name}}Schema()),
+  })
+
+  const handleSubmit = methods.handleSubmit((data) => {
+    console.log(data);
+  })
+  return { methods, handleSubmit }
+}

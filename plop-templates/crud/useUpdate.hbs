@@ -1,0 +1,23 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { type {{pascalCase name}}SchemaType, {{name}}Schema } from "@/modules/{{name}}/helper/{{name}}Schema"
+import { useForm } from "react-hook-form"
+import { yupResolver } from '@hookform/resolvers/yup'
+import { use{{pascalCase serviceName}}Service } from "@/services/{{serviceName}}/{{serviceName}}.service";
+import { useParams } from "react-router-dom";
+import { {{name}}Deserializer } from "@/modules/{{name}}/helper/{{name}}Serializer";
+
+export const useUpdate{{pascalCase name}} = () => {
+  const { id } = useParams();
+  const { mutate } = use{{pascalCase serviceName}}Service().update().useMutation(id ?? "");
+  const { data } = use{{pascalCase serviceName}}Service().one().useQuery(id ?? "", { enabled: false })
+
+  const methods = useForm<{{pascalCase name}}SchemaType>({
+    resolver: yupResolver({{name}}Schema()),
+    defaultValues: {{name}}Deserializer(data) as any,
+  })
+
+  const handleSubmit = methods.handleSubmit((data) => {
+    console.log(data);
+  })
+  return { methods, handleSubmit }
+}

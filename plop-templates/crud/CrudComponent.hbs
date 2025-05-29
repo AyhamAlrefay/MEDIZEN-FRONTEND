@@ -1,0 +1,11 @@
+import { PageLoader } from "@/shared/components/PageLoader";
+import React from "react";
+import { Outlet } from "react-router-dom";
+
+export const {{pascalCase name}}Component = () => {
+  return (
+    <React.Suspense fallback={<PageLoader />}>
+      <Outlet />
+    </React.Suspense>
+  );
+};

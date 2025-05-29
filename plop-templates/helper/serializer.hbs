@@ -1,0 +1,13 @@
+import { type {{pascalCase name}}SchemaType } from "@/modules/{{name}}/helper/{{name}}Schema";
+import { type {{pascalCase name}}ModelType } from "@/services/{{serviceName}}/{{serviceName}}.types";
+
+
+export const {{name}}Serializer = (input: {{pascalCase name}}SchemaType) => {
+  const data = structuredClone(input);
+  return data;
+}
+
+
+export const {{name}}Deserializer = ({{name}}: {{pascalCase name}}ModelType) => {
+  return {{name}};
+}

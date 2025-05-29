@@ -1,0 +1,37 @@
+import { GridRowId, type GridColDef } from "@mui/x-data-grid";
+import { DeleteAction } from "@/shared/components/DataTable/DeleteAction";
+import { use{{pascalCase name}}Service } from "@/services/{{name}}/{{name}}.service";
+import EditIcon from "@mui/icons-material/Edit";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import { Link } from "react-router-dom";
+import { IconButton } from "@mui/material";
+
+export const use{{pascalCase name}}Columns = (): { columns: GridColDef[] } => {
+  const { mutateAsync } = use{{pascalCase name}}Service().delete().useMutation();
+  const handleDelete = async (id: GridRowId) => mutateAsync(id);
+  const columns: GridColDef[] =[
+  // COLUMNS
+   {
+      field: "Actions",
+      type: "actions",
+      getActions: (params) => [
+        <DeleteAction
+          key={0}
+          onDelete={() => handleDelete(params.id)}
+          title="Delete {{pascalCase name}}"
+        />,
+        <Link key={1} to={`update/${[params.id]}`}>
+          <IconButton size="small">
+            <EditIcon />
+          </IconButton>
+        </Link>,
+        <Link key={2} to={`${[params.id]}`}>
+          <IconButton size="small">
+            <VisibilityIcon/>
+          </IconButton>
+        </Link>,
+      ],
+    }
+ ]
+  return { columns };
+};

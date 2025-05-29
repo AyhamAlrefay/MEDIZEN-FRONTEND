@@ -1,0 +1,15 @@
+import React from "react";
+import { CreateTemplate } from "@/shared/templates/CreateTemplate";
+import { Box } from "@mui/material";
+import { useCreate{{pascalCase name}} } from "../hooks/useCreate{{pascalCase name}}";
+
+const {{pascalCase name}}Create = () => {
+  const { handleSubmit } = useCreate{{pascalCase name}}();
+  return (
+    <CreateTemplate title="Create {{pascalCase name}}" onSubmit={handleSubmit}>
+      <Box></Box>
+    </CreateTemplate>
+  );
+};
+
+export default {{pascalCase name}}Create;

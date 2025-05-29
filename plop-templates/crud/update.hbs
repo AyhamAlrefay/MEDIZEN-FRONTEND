@@ -1,0 +1,26 @@
+import React from "react";
+import { Box } from "@mui/material";
+import { useUpdate{{pascalCase name}} } from "../hooks/useUpdate{{pascalCase name}}";
+import { useParams } from "react-router-dom";
+import { use{{pascalCase serviceName}}Service } from "@/services/{{serviceName}}/{{serviceName}}.service";
+import { UpdateTemplate } from "@/shared/templates/UpdateTemplate";
+import { Loader } from "@/shared/components/Loader";
+
+const _{{pascalCase name}}Update = () => {
+  const { handleSubmit } = useUpdate{{pascalCase name}}();
+  return (
+    <UpdateTemplate title="Update {{pascalCase name}}" onSubmit={handleSubmit}>
+      <Box></Box>
+    </UpdateTemplate>
+  );
+};
+const {{pascalCase name}}Update = () => {
+  const { id } = useParams();
+  const { isLoading } = use{{pascalCase serviceName}}Service()
+    .one()
+    .useQuery(id ?? "");
+   if (isLoading) return <Loader loading />;
+  return <_{{pascalCase name}}Update />;
+};
+
+export default {{pascalCase name}}Update;

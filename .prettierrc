@@ -1,0 +1,8 @@
+{
+  "endOfLine": "auto",
+  "jsxSingleQuote": false,
+  "insertPragma": false,
+  "bracketSpacing": true,
+  "importOrderSeparation": true,
+  "semi": true
+}

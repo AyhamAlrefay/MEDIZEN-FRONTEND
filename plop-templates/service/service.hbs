@@ -1,0 +1,93 @@
+
+import Axios from "@/services/interceptor";
+import { QueryType } from "@/types/common";
+import { useMutation, UseMutationOptions, useQuery, useQueryClient,UseQueryOptions } from "@tanstack/react-query";
+
+const queryKey = ['{{endPoint}}'];
+export const use{{pascalCase serviceName}}Service = () => {
+  const queryCLient = useQueryClient();
+  return {
+    index: () => {
+      return {
+        useQuery: (params?: Record<string, unknown>, options?: Omit<UseQueryOptions<QueryType>, 'queryKey' | 'queryFn'>) => {
+          const query = useQuery({
+            queryKey: [...queryKey, params],
+            queryFn: async () => Axios.get("/{{endPoint}}",{
+              params,
+            }),
+            ...options,
+          });
+          return { ...query };
+        },
+
+      };
+    },
+    one: () => {
+      return {
+        useQuery: (id?: number | string,options?: Omit<UseQueryOptions<QueryType>, 'queryKey' | 'queryFn'>) => {
+          const query = useQuery({
+            queryKey: [`{{endPoint}}-${id}`],
+            queryFn: async () => Axios.get(`/{{endPoint}}/${id}`),
+            ...options,
+          });
+          return { ...query };
+        },
+      };
+    },
+    create: () => {
+      return {
+        useMutation: (options?: Omit<UseMutationOptions<unknown, unknown, unknown, unknown>, 'mutationFn' | 'mutationKey'>) => {
+          const mutation = useMutation({
+            mutationKey: ['create-{{endPoint}}'],
+            mutationFn: async (data: unknown) => Axios.post("/{{endPoint}}", data, {}),
+            ...options,
+          });
+          return { ...mutation };
+        },
+
+      };
+    },
+    update: () => {
+      return {
+        useMutation: (id: number | string, options?: Omit<UseMutationOptions<unknown, unknown, unknown, unknown>, 'mutationFn' | 'mutationKey'>) => {
+          const mutation = useMutation({
+            mutationKey: ['update-{{endPoint}}'],
+            mutationFn: async (data: unknown) => Axios.put(`/{{endPoint}}/${id}`, data, {}),
+            ...options,
+          });
+          return { ...mutation };
+        },
+
+      };
+    },
+    delete: () => {
+      return {
+        useMutation: (options?: Omit<UseMutationOptions<unknown, unknown, unknown, unknown>, 'mutationFn' | 'mutationKey'>) => {
+          const mutation = useMutation({
+            mutationKey: ['delete-{{endPoint}}'],
+            mutationFn: async (id: string | number) => Axios.delete(`/{{endPoint}}/${id}`, {}),
+            ...options,
+            onSuccess: (data, variables, context) => {
+              queryCLient.invalidateQueries({
+                queryKey,
+              });
+              options?.onSuccess?.(data, variables, context);
+            },
+          });
+          return { ...mutation };
+        },
+
+      };
+    },
+
+
+    invalidateQuery: async () => {
+      return {
+        invalidate: queryCLient.invalidateQueries({
+          queryKey,
+        }),
+      };
+    },
+  };
+
+}
